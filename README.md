@@ -117,7 +117,13 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 ### Resource Lock Verification (Lock Test): 
 
 ![Architecture Diagram](images/vm-resource-lock.png)
-* (IMG005- Diagram shows the Network Security group Inbound and Outbound rules.)
+* **(IMG005- Diagram shows the Network Security group Inbound and Outbound rules.)There was a problem submitting your return.
+
+Message from the CRA
+The Canada Revenue Agency cannot process this ReFILE due to system constraints.
+Confirm that you are able to use ReFILE. For details on exclusions, refer to the Changing a tax return website.
+If you require assistance, contact us.
+CRA NETFILE result code 604
 
 ### Private Link Verification: 
 
