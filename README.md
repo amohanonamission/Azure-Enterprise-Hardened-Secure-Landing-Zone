@@ -8,7 +8,7 @@ Beyond solving the standard infrastructure deployment, this project also serves 
 
 ### Architecture Overview:
 
-* **Hub-Spoke Topology:** Centralized management plane (Hub) peered with workload environments (Spokes) using allowForwardedTraffic to enforce strict transit boundaries.
+* **Hub-Spoke Topology:** Centralized management plane (Hub) peered with workload environments (Spokes) using ``` allowForwardedTraffic ``` to enforce strict transit boundaries.
 * **Perimeter Security:** User-Defined Routes (UDR) for forced-tunneling and "Default-Deny" NSGs.
 * **Identity & Access (IAM):** System-Assigned Managed Identity for VMs and RBAC-only access for Key Vault.
 * **Private Connectivity:** Key Vault isolation via Private Endpoints (Private Link).
