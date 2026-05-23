@@ -1,4 +1,4 @@
-# Azure Enterprise Hardened Landing Zone (Zero-Trust Foundation & SecOps Lab)
+# Azure Secure Landing Zone: Enterprise Risk & Governance Foundation
 
 ### Objective
 
