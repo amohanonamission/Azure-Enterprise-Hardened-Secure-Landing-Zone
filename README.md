@@ -14,10 +14,11 @@ Beyond solving the standard infrastructure deployment, this project also serves 
 * **Private Connectivity:** Key Vault isolation via Private Endpoints (Private Link).
 * **Observability:** Centralized Log Analytics Workspace (LAW) with diagnostic pipes from all resources.
 
-### Infrastructure as Code (IaC) Components
+### Infrastructure as Code Components (Modules)
 
 | Module | Purpose | Security Feature |
 | -------- | -------- | -------- |
+|firewall.bicep | Network Security | Layer 7 Deep Packet Inspection & FQDN egress filtering. |
 |security-center.bicep	| Central Logging	| Log Analytics Workspace (LAW) & Immutable Diag Storage. |
 |vnet-hub-spoke.bicep	| Network Mesh	| Hub-Spoke Peering, Bastion Host, and UDR Route Tables. |
 |vault.bicep	| Secret Management	| Private Endpoint (No Public Access) & RBAC Authorization. |
