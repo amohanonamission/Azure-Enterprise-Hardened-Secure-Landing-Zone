@@ -10,6 +10,7 @@ Beyond solving the standard infrastructure deployment, this project also serves 
 
 * **Hub-Spoke Topology:** Centralized management plane (Hub) peered with workload environments (Spokes) using ``` allowForwardedTraffic ``` to enforce strict transit boundaries.
 * **Deep Packet Perimeter:** All egress and cross-spoke traffic is forced through an Azure Firewall via User-Defined Routes (UDRs), providing Layer 7 (Application) filtering and IDPS, moving beyond basic Layer 4 NSGs.
+Identity & Access (IAM): System-Assigned Managed Identities for compute, strict RBAC-only Key Vault access, and a documented "Break-Glass" strategy for Business Continuity during Entra ID outages.
 * **Perimeter Security:** Forced tunneling through Azure Firewall for egress and cross-spoke traffic via User-Defined Routes (UDRs), providing Layer 7 (Application) filtering and IDPS, along with Layer 4 "Default-Deny" NSGs.
 * **Identity & Access (IAM):** System-Assigned Managed Identity for VMs and RBAC-only access for Key Vault.
 * **Private Connectivity:** Key Vault isolation via Private Endpoints (Private Link).
