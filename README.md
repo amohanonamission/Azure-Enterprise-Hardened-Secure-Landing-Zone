@@ -13,6 +13,7 @@ Beyond solving the standard infrastructure deployment, this project also serves 
 * **Identity & Access (IAM):** System-Assigned Managed Identities for compute, strict RBAC-only Key Vault access, and a documented "Break-Glass" strategy for Business Continuity during Entra ID outages.
 * **Private Connectivity:** Data plane isolation via Azure Private Link and Private DNS Zones. Critical assets (like Key Vault) are decoupled from the public internet entirely.
 Observability by Design: Centralized Log Analytics Workspace (LAW). Every deployed resource is programmatically bound to a diagnosticSettings configuration, streaming audit logs to Microsoft Sentinel instantly.
+Governance as Code: Subscription-level Azure Policies are enforced via Bicep to restrict deployment regions, mandate resource tagging, and enforce MFA compliance.
 
 * **Perimeter Security:** Forced tunneling through Azure Firewall for egress and cross-spoke traffic via User-Defined Routes (UDRs), providing Layer 7 (Application) filtering and IDPS, along with Layer 4 "Default-Deny" NSGs.
 * **Identity & Access (IAM):** System-Assigned Managed Identity for VMs and RBAC-only access for Key Vault.
