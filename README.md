@@ -29,7 +29,7 @@ Beyond solving the standard infrastructure deployment, this project also serves 
 | peering.bicep | Network Security - Vnet | Decoupled deployment ensuring secure, routed VNet transit. |
 | policies.bicep | Governance - Policy | Preventative guardrails (Allowed locations, Tagging taxonomy). |
 | keyvault.bicep | Security - Access | Soft-delete, Purge Protection, and Private Link isolation. |
-
+| -------- | -------- | -------- |
 |security-center.bicep	| Central Logging	| Log Analytics Workspace (LAW) & Immutable Diag Storage. |
 |vnet-hub-spoke.bicep	| Network Mesh	| Hub-Spoke Peering, Bastion Host, and UDR Route Tables. |
 |vault.bicep	| Secret Management	| Private Endpoint (No Public Access) & RBAC Authorization. |
