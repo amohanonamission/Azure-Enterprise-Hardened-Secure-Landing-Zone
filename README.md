@@ -24,10 +24,10 @@ Beyond solving the standard infrastructure deployment, this project also serves 
 
 | Module | Purpose | Security Feature |
 | -------- | -------- | -------- |
-|firewall.bicep | Network Security - Firewall | Layer 7 Deep Packet Inspection & FQDN egress filtering. |
-|nsg.bicep | Network Security - NSG | "Default-Deny" micro-segmentation at the subnet level. |
+| firewall.bicep | Network Security - Firewall | Layer 7 Deep Packet Inspection & FQDN egress filtering. |
+| nsg.bicep | Network Security - NSG | "Default-Deny" micro-segmentation at the subnet level. |
 | peering.bicep | Network Security - Vnet | Decoupled deployment ensuring secure, routed VNet transit. |
-| policies.bicep |  |  |
+| policies.bicep | Governance - Policy | Preventative guardrails (Allowed locations, Tagging taxonomy). |
 |security-center.bicep	| Central Logging	| Log Analytics Workspace (LAW) & Immutable Diag Storage. |
 |vnet-hub-spoke.bicep	| Network Mesh	| Hub-Spoke Peering, Bastion Host, and UDR Route Tables. |
 |vault.bicep	| Secret Management	| Private Endpoint (No Public Access) & RBAC Authorization. |
