@@ -38,6 +38,14 @@ Beyond solving the standard infrastructure deployment, this project also serves 
 
 ### Security Architecture Decisions
 
+Decision 1: Secure Parameterization: Leveraged @secure() decorators for administrative credentials and utilized the CustomScript extension (chage -d 0) to enforce an immediate password change policy upon first interactive login, mitigating 'Day 1' credential risks.
+
+Decision 2: Ubiquitous Diagnostic Pipes: Implemented Microsoft.Insights/diagnosticSettings across all modules. If a resource is deployed, its telemetry is inherently piped to the central LAW. (Rationale: "If it isn't logged, it didn't happen.")
+
+Decision 3: The 'Kill Switch' Pipeline: Integrated az deployment sub what-if into the GitHub Actions workflow. Infrastructure modifications generate a Delta report before tenant execution, ensuring strict Change Advisory Board (CAB) visibility.
+
+Decision 4: Layered Perimeter Defense: Implemented Azure Firewall over standalone NSGs. While NSGs handle internal micro-segmentation, the Firewall handles deep packet inspection and outbound FQDN filtering, meeting enterprise data exfiltration requirements.
+
 * **Decision 1:** Secure Parameterization. "Used @secure() decorators for all administrative credentials to ensure zero exposure in deployment logs and metadata."
 
 * **Decision 2:** Automated Hardening. "Leveraged the CustomScript extension to enforce an immediate password change policy (chage -d 0) upon the first interactive login, mitigating 'Day 1' credential risks."
