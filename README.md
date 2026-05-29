@@ -108,6 +108,8 @@ Beyond initial deployment, this repository provides assets for active defense, r
 
 Automated Threat Hunting: See /monitoring/Threat-Detection-Queries.kql for custom Kusto Query Language (KQL) rules designed to detect unauthorized NSG modifications and Key Vault access policy tampering via Sentinel.
 
+Business Continuity Planning (BCP): See /identity/setup-break-glass.ps1 for the deployment logic of a Cloud-Only Emergency Access Account, intentionally bypassing Conditional Access to prevent lockout during Entra ID outages.
+
 Beyond the Bicep deployment, this lab includes documented manual configurations for:
 
 * **Microsoft Defender for Cloud:** Enabling security posture management (CSPM).
