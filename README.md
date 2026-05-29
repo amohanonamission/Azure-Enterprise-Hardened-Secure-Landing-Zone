@@ -38,7 +38,7 @@ Beyond solving the standard infrastructure deployment, this project also serves 
 
 ### Security Architecture Decisions
 
-Decision 1: Secure Parameterization: Leveraged @secure() decorators for administrative credentials and utilized the CustomScript extension (chage -d 0) to enforce an immediate password change policy upon first interactive login, mitigating 'Day 1' credential risks.
+* Decision 1: Secure Parameterization: Leveraged @secure() decorators for administrative credentials and utilized the CustomScript extension (chage -d 0) to enforce an immediate password change policy upon first interactive login, mitigating 'Day 1' credential risks.
 
 Decision 2: Ubiquitous Diagnostic Pipes: Implemented Microsoft.Insights/diagnosticSettings across all modules. If a resource is deployed, its telemetry is inherently piped to the central LAW. (Rationale: "If it isn't logged, it didn't happen.")
 
