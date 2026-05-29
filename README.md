@@ -44,7 +44,7 @@ Beyond solving the standard infrastructure deployment, this project also serves 
 
 * Decision 3: The 'Kill Switch' Pipeline: Integrated az deployment sub what-if into the GitHub Actions workflow. Infrastructure modifications generate a Delta report before tenant execution, ensuring strict Change Advisory Board (CAB) visibility.
 
-Decision 4: Layered Perimeter Defense: Implemented Azure Firewall over standalone NSGs. While NSGs handle internal micro-segmentation, the Firewall handles deep packet inspection and outbound FQDN filtering, meeting enterprise data exfiltration requirements.
+* Decision 4: Layered Perimeter Defense: Implemented Azure Firewall over standalone NSGs. While NSGs handle internal micro-segmentation, the Firewall handles deep packet inspection and outbound FQDN filtering, meeting enterprise data exfiltration requirements.
 
 * **Decision 1:** Secure Parameterization. "Used @secure() decorators for all administrative credentials to ensure zero exposure in deployment logs and metadata."
 
