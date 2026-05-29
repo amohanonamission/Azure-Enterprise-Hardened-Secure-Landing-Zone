@@ -106,6 +106,8 @@ az stack sub create \
 ## SecOps: Day 2 Operational & Governance Configurations
 Beyond initial deployment, this repository provides assets for active defense, resilience, and continuous compliance:
 
+Automated Threat Hunting: See /monitoring/Threat-Detection-Queries.kql for custom Kusto Query Language (KQL) rules designed to detect unauthorized NSG modifications and Key Vault access policy tampering via Sentinel.
+
 Beyond the Bicep deployment, this lab includes documented manual configurations for:
 
 * **Microsoft Defender for Cloud:** Enabling security posture management (CSPM).
