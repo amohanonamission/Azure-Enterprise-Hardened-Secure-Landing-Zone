@@ -42,7 +42,7 @@ Beyond solving the standard infrastructure deployment, this project also serves 
 
 * Decision 2: Ubiquitous Diagnostic Pipes: Implemented Microsoft.Insights/diagnosticSettings across all modules. If a resource is deployed, its telemetry is inherently piped to the central LAW. (Rationale: "If it isn't logged, it didn't happen.")
 
-Decision 3: The 'Kill Switch' Pipeline: Integrated az deployment sub what-if into the GitHub Actions workflow. Infrastructure modifications generate a Delta report before tenant execution, ensuring strict Change Advisory Board (CAB) visibility.
+* Decision 3: The 'Kill Switch' Pipeline: Integrated az deployment sub what-if into the GitHub Actions workflow. Infrastructure modifications generate a Delta report before tenant execution, ensuring strict Change Advisory Board (CAB) visibility.
 
 Decision 4: Layered Perimeter Defense: Implemented Azure Firewall over standalone NSGs. While NSGs handle internal micro-segmentation, the Firewall handles deep packet inspection and outbound FQDN filtering, meeting enterprise data exfiltration requirements.
 
