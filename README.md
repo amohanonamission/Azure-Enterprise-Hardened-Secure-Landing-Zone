@@ -112,6 +112,8 @@ Business Continuity Planning (BCP): See /identity/setup-break-glass.ps1 for the 
 
 Microsoft Defender for Cloud (CSPM): Built for automated onboarding to monitor the "Security Score" and actively remediate high-risk vulnerabilities.
 
+Encryption at Host: Utilizing the modern successor to Azure Disk Encryption (ADE) to ensure temporary disks, OS caches, and data disks are encrypted at the source with zero performance overhead.
+
 Beyond the Bicep deployment, this lab includes documented manual configurations for:
 
 * **Microsoft Defender for Cloud:** Enabling security posture management (CSPM).
