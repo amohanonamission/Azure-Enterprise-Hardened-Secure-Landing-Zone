@@ -110,6 +110,8 @@ Automated Threat Hunting: See /monitoring/Threat-Detection-Queries.kql for custo
 
 Business Continuity Planning (BCP): See /identity/setup-break-glass.ps1 for the deployment logic of a Cloud-Only Emergency Access Account, intentionally bypassing Conditional Access to prevent lockout during Entra ID outages.
 
+Microsoft Defender for Cloud (CSPM): Built for automated onboarding to monitor the "Security Score" and actively remediate high-risk vulnerabilities.
+
 Beyond the Bicep deployment, this lab includes documented manual configurations for:
 
 * **Microsoft Defender for Cloud:** Enabling security posture management (CSPM).
