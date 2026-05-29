@@ -114,6 +114,8 @@ Microsoft Defender for Cloud (CSPM): Built for automated onboarding to monitor t
 
 Encryption at Host: Utilizing the modern successor to Azure Disk Encryption (ADE) to ensure temporary disks, OS caches, and data disks are encrypted at the source with zero performance overhead.
 
+Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dynamically flag any resource that drifts from the security baseline as "Non-Compliant."
+
 Beyond the Bicep deployment, this lab includes documented manual configurations for:
 
 * **Microsoft Defender for Cloud:** Enabling security posture management (CSPM).
