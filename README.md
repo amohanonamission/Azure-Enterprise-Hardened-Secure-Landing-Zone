@@ -164,7 +164,11 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 
 ---
 
-## Changed and Future Improvements
+### Azure Monitor
+
+---
+
+## Changes and Future Improvements
 
 
 Project 1: The Secure Enterprise Landing Zone (The Architecture & GRC Blueprint)
@@ -178,7 +182,4 @@ The Auditor’s Twist (CISA/SC-100) — This lands the job:
 Create and assign a custom Azure Policy Initiative that automatically blocks the creation of any public IP addresses in the Spoke networks.
 Write a formal 3-page Pre-Implementation Audit Report and post it on your GitHub repository. Explain how your landing zone architecture maps directly to the controls of ISO 27001 and NIST SP 800-53 (specifically addressing network segregation and least-privilege access).
 
-
-
-### Azure Monitor
 
