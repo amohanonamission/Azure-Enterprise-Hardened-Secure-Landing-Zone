@@ -142,19 +142,19 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 
 ### Network Watcher Topology:
 
-![Architecture Diagram](images/Deployment-Proof-Azure.png)
+![Architecture Diagram](docs/images/Deployment-Proof-Azure.png)
 * **(IMG003- Diagram shows the Azure Network Watcher Topology.)**
-![Architecture Diagram](images/network-watcher.png)
+![Architecture Diagram](docs/images/network-watcher.png)
 * **(IMG004- Diagram shows the Azure Resource Group overview.)**
 
 ### Resource Lock Verification (Lock Test): 
 
-![Architecture Diagram](images/vm-resource-lock.png)
+![Architecture Diagram](docs/images/vm-resource-lock.png)
 * **(IMG005- Diagram shows the Network Security group Inbound and Outbound rules.)**
 
 ### Private Link Verification: 
 
-![Architecture Diagram](images/vault-private.png)
+![Architecture Diagram](docs/images/vault-private.png)
 * **(IMG006- Diagram shows the Deletion Attempt on the Resource Group with Resource Lock.)**
 
 ### Key Vault (Managed Identity)
