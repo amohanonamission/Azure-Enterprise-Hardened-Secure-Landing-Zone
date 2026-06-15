@@ -134,7 +134,7 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 
 ### Architecture Diagram (VS Code)
  
-![Architecture Diagram](images/vscode-networkdiagram.png)
+![Architecture Diagram](docs/images/vscode-networkdiagram.png)
 * **(IMG001- Diagram shows the Vscode visualizer diagram overview of the Hub-Spoke network.)**
 
 ![Architecture Diagram](images/Azure-Visualizer.png)
