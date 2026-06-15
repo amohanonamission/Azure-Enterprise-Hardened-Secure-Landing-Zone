@@ -137,7 +137,7 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 ![Architecture Diagram](docs/images/vscode-networkdiagram.png)
 * **(IMG001- Diagram shows the Vscode visualizer diagram overview of the Hub-Spoke network.)**
 
-![Architecture Diagram](images/Azure-Visualizer.png)
+![Architecture Diagram](docs/images/Azure-Visualizer.png)
 * **(IMG002- Diagram shows the Azure visualizer diagram overview of the Hub-Spoke network.)**
 
 ### Network Watcher Topology:
