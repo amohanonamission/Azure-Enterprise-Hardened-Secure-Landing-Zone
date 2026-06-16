@@ -172,14 +172,25 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 
 
 Project 1: The Secure Enterprise Landing Zone (The Architecture & GRC Blueprint)
+
 What it is: A secure, production-ready Azure environment built via code, matching Microsoft Cloud Adoption Framework (CAF) best practices.
+
 The Technical Build (AZ-104/AZ-500):
+
 Deploy an Infrastructure as Code (IaC) template (using Bicep or Terraform) creating a Hub-and-Spoke VNet topology.
+
 The Hub: Place an Azure Firewall and an Azure Bastion host here. Route all traffic from the spokes through the Hub firewall using User-Defined Routes (UDRs).
+
 The Spokes: Create two separate spoke VNets. Spoke A hosts your application servers; Spoke B hosts your databases. Use Network Security Groups (NSGs) to strictly limit communication between them.
+
 Identity (Microsoft Entra ID): Set up a simulated corporate directory. Configure a conditional access policy requiring Multi-Factor Authentication (MFA) for any administrative actions.
+
 The Auditor’s Twist (CISA/SC-100) — This lands the job:
+
 Create and assign a custom Azure Policy Initiative that automatically blocks the creation of any public IP addresses in the Spoke networks.
-Write a formal 3-page Pre-Implementation Audit Report and post it on your GitHub repository. Explain how your landing zone architecture maps directly to the controls of ISO 27001 and NIST SP 800-53 (specifically addressing network segregation and least-privilege access).
+
+Write a formal 3-page Pre-Implementation Audit Report and post it on your GitHub repository. 
+
+Explain how your landing zone architecture maps directly to the controls of ISO 27001 and NIST SP 800-53 (specifically addressing network segregation and least-privilege access).
 
 
