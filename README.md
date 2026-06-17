@@ -71,6 +71,8 @@ Repo: Azure-Enterprise-Hardened-Secure-Landing-Zone/
 │   │   ├── peering.bicep         		# NEW: Dedicated peering module
 │   │   ├── firewall.bicep         		# Includes Diagnostic Settings
 │   │   └── nsg.bicep             		# Includes Diagnostic Settings
+│   ├── compute/                    
+│   │   └── compute.bicep
 │   ├── governance/
 │   │   └── policies.bicep
 │   ├── security/
