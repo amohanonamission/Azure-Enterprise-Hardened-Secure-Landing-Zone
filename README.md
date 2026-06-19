@@ -196,3 +196,4 @@ Write a formal 3-page Pre-Implementation Audit Report and post it on your GitHub
 Explain how your landing zone architecture maps directly to the controls of ISO 27001 and NIST SP 800-53 (specifically addressing network segregation and least-privilege access).
 
 
+**Master Repo 1: The Secure Hybrid Landing Zone & Network Edge (Your Project 1 + Your Project 3)The Reality: Combines your physical homelab VLAN edge/VPN routing directly into your Bicep-driven automated Hub-and-Spoke Azure landing zone.**
