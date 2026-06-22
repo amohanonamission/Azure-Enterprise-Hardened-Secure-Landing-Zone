@@ -175,7 +175,7 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 
 ### Project 1: The Secure Enterprise Landing Zone (The Architecture & GRC Blueprint)
 
-What it is: A secure, production-ready Azure environment built via code, matching Microsoft Cloud Adoption Framework (CAF) best practices.
+> What it is: A secure, production-ready Azure environment built via code, matching Microsoft Cloud Adoption Framework (CAF) best practices.
 
 The Technical Build (AZ-104/AZ-500):
 
