@@ -179,15 +179,15 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 
 **The Technical Build (AZ-104/AZ-500):**
 
-- Deploy an Infrastructure as Code (IaC) template (using Bicep or Terraform) creating a Hub-and-Spoke VNet topology.
+- **Deploy an Infrastructure as Code (IaC) template (using Bicep or Terraform) creating a Hub-and-Spoke VNet topology.**
 
-- The Hub: Place an Azure Firewall and an Azure Bastion host here. Route all traffic from the spokes through the Hub firewall using User-Defined Routes (UDRs).
+- **The Hub:** Place an Azure Firewall and an Azure Bastion host here. Route all traffic from the spokes through the Hub firewall using User-Defined Routes (UDRs).
 
-- The Spokes: Create two separate spoke VNets. Spoke A hosts your application servers; Spoke B hosts your databases. Use Network Security Groups (NSGs) to strictly limit communication between them.
+- **The Spokes:** Create two separate spoke VNets. Spoke A hosts your application servers; Spoke B hosts your databases. Use Network Security Groups (NSGs) to strictly limit communication between them.
 
-- Identity (Microsoft Entra ID): Set up a simulated corporate directory. Configure a conditional access policy requiring Multi-Factor Authentication (MFA) for any administrative actions.
+- **Identity (Microsoft Entra ID):** Set up a simulated corporate directory. Configure a conditional access policy requiring Multi-Factor Authentication (MFA) for any administrative actions.
 
-- The Auditor’s Twist (CISA/SC-100) — This lands the job:
+- **The Auditor’s Twist (CISA/SC-100) — This lands the job:**
 
 - Create and assign a custom Azure Policy Initiative that automatically blocks the creation of any public IP addresses in the Spoke networks.
 
