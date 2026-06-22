@@ -177,7 +177,7 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 
 > What it is: A secure, production-ready Azure environment built via code, matching Microsoft Cloud Adoption Framework (CAF) best practices.
 
-The Technical Build (AZ-104/AZ-500):
+**The Technical Build (AZ-104/AZ-500):**
 
 Deploy an Infrastructure as Code (IaC) template (using Bicep or Terraform) creating a Hub-and-Spoke VNet topology.
 
