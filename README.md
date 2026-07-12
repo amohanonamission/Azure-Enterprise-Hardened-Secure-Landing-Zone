@@ -1,5 +1,7 @@
 # Azure Secure Landing Zone: Enterprise Risk & Governance Foundation
 
+🚧 This repository is actively being expanded. Labs, notes, and examples will be added shortly.
+
 ### Objective
 
 This repository deploys an **Enterprise-Grade Cloud Foundation** in Azure using modular Infrastructure as Code (Bicep). Designed for heavily **regulated environments** (Banking/Financial Services), it implements the **Microsoft Cloud Adoption Framework (CAF)** and **Zero-Trust architecture** to build a secure, immutable, and audited "Hardened Shell" for production workloads.
