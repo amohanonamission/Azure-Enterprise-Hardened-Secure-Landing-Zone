@@ -189,7 +189,7 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 
 - **Identity (Microsoft Entra ID):** Set up a simulated corporate directory. Configure a conditional access policy requiring Multi-Factor Authentication (MFA) for any administrative actions.
 
-- **The Auditor’s Twist (CISA/SC-100) — This lands the job:**
+**The Auditor’s Twist (CISA/SC-100) — This lands the job:**
 
 - Create and assign a custom Azure Policy Initiative that automatically blocks the creation of any public IP addresses in the Spoke networks.
 
