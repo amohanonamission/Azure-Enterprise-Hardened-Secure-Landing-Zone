@@ -58,6 +58,40 @@ Beyond solving the standard infrastructure deployment, this project also serves 
 
 ### Repository Structure
 
+
+## NEW
+```
+Repo: Azure-Enterprise-Hardened-Secure-Landing-Zone/
+├── .github/
+│   └── workflows/
+│       └── bicep-deploy.yml    # CI/CD: The "Kill Switch" & What-If
+├── docs/                          	       		
+│   ├── Pre-Implementation-Audit.md       # (The 3-page Auditor report mentioned in your advice)
+│   └── images/  
+├── modules/
+│   ├── network/
+│   │   ├── hub-vnet.bicep                # The central transit hub
+│   │   ├── spoke-vnet.bicep              # Contains Web Subnet & Data Subnet
+│   │   ├── peering.bicep         		  # The bridge between Hub and Spoke
+│   │   ├── firewall.bicep         		  # Layer 7 Egress control
+│   │   └── nsg.bicep             		  # Layer 4 Internal traffic control
+│   ├── compute/                    
+│   │   └── compute.bicep                 # Deploys Ubuntu VM 1 (Web) and VM 2 (Data)
+│   ├── governance/
+│   │   └── policies.bicep                # Azure Policies (e.g., Block Public IPs)
+│   ├── security/
+│   │   ├── keyvault.bicep        		  # Private Link isolated secrets
+│   │   └── law.bicep                     # Log Analytics Workspace
+├── identity/                                                  
+│   └── setup-break-glass.ps1             # BCP Emergency Access Script         
+├── monitoring/                                             
+│   └── Threat-Detection-Queries.kql      # Sentinel detection logic
+├── bicepconfig.json              	      # Code quality rules
+├── main.bicep                            # The Orchestrator
+└── main.parameters.json                  # Environment variables
+
+```
+## OLD
 ```
 Repo: Azure-Enterprise-Hardened-Secure-Landing-Zone/
 ├── .github/
