@@ -1,5 +1,5 @@
 // modules/security/law.bicep
-
+// This is your Log Analytics Workspace
 
 param location string
 param prefix string
