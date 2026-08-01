@@ -1,1 +1,17 @@
-
+{
+  "analyzers": {
+    "core": {
+      "rules": {
+        "no-hardcoded-env-urls": {
+          "level": "warning"
+        },
+        "secure-parameter-default": {
+          "level": "error"
+        },
+        "no-unused-params": {
+          "level": "warning"
+        }
+      }
+    }
+  }
+}
