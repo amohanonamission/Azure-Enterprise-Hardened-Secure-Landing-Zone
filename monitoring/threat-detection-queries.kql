@@ -1,1 +1,94 @@
+// ============================================================================
+// FILE: Threat-Detection-Queries.kql
+// PURPOSE: Azure Sentinel / Log Analytics Threat Hunting Queries
+// ALIGNMENT: MITRE ATT&CK Framework & CISA Continuous Monitoring
+// ============================================================================
 
+// ----------------------------------------------------------------------------
+// RULE 1: Break-Glass Account Logon Detected
+// SEVERITY: Critical (P1)
+// MITRE TACTIC: Initial Access / Persistence (TA0001, TA0003)
+// DESCRIPTION: The Break-Glass account should NEVER be used during normal 
+// operations. Any successful or failed login attempt using this UPN must 
+// instantly page the on-call Security Incident Response Team (SIRT).
+// ----------------------------------------------------------------------------
+SigninLogs
+| where UserPrincipalName startswith "emg-admin-vault"
+| project TimeGenerated, 
+          UserPrincipalName, 
+          IPAddress, 
+          Location, 
+          ClientAppUsed, 
+          AuthenticationRequirement,
+          Status,
+          CorrelationId
+| sort by TimeGenerated desc
+
+
+// ----------------------------------------------------------------------------
+// RULE 2: Perimeter Modification - NSG Rule Tampered
+// SEVERITY: High (P2)
+// MITRE TACTIC: Defense Evasion (TA0005)
+// DESCRIPTION: Our infrastructure relies on a strict Zero-Trust NSG model. 
+// If an admin or an attacker modifies or deletes an NSG rule to open a port 
+// (e.g., SSH/3389) outside of our CI/CD pipeline, this tripwire catches them.
+// ----------------------------------------------------------------------------
+AzureActivity
+| where ResourceProviderValue == "MICROSOFT.NETWORK"
+| where OperationNameValue in ("Microsoft.Network/networkSecurityGroups/securityRules/write", "Microsoft.Network/networkSecurityGroups/securityRules/delete")
+| where ActivityStatusValue == "Success"
+| extend RuleName = tostring(parse_json(Properties).resource)
+| project TimeGenerated, 
+          Caller, 
+          CallerIpAddress, 
+          OperationNameValue, 
+          ResourceGroup, 
+          RuleName, 
+          ActivityStatusValue
+| sort by TimeGenerated desc
+
+
+// ----------------------------------------------------------------------------
+// RULE 3: Vault Tampering - Unauthorized Key Vault Access Attempts
+// SEVERITY: Medium/High (P3/P2)
+// MITRE TACTIC: Credential Access (TA0006)
+// DESCRIPTION: Because we enabled Diagnostic Settings on the Key Vault, all 
+// data-plane operations are logged. This query looks for anyone—or any 
+// managed identity—trying to access secrets and getting a 403 Forbidden.
+// A spike here indicates a compromised VM trying to escalate privileges.
+// ----------------------------------------------------------------------------
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.KEYVAULT"
+| where Category == "AuditEvent"
+// Filter out successful operations, focus on Denied/Forbidden attempts
+| where ResultSignature != "OK" and ResultSignature != "Success"
+| extend Identity = coalesce(identity_claim_upn_s, identity_claim_appid_s, "Unknown Identity")
+| project TimeGenerated, 
+          OperationName, 
+          Identity, 
+          CallerIPAddress, 
+          Resource, 
+          ResultSignature, 
+          requestUri_s
+| sort by TimeGenerated desc
+
+
+// ----------------------------------------------------------------------------
+// RULE 4: IAM Privilege Escalation - RBAC Role Assignment Created
+// SEVERITY: High (P2)
+// MITRE TACTIC: Privilege Escalation (TA0004)
+// DESCRIPTION: Detects if someone manually grants "Owner" or "Key Vault 
+// Secrets User" outside of the automated Bicep deployment.
+// ----------------------------------------------------------------------------
+AzureActivity
+| where OperationNameValue == "Microsoft.Authorization/roleAssignments/write"
+| where ActivityStatusValue == "Success"
+| extend RoleDefinition = tostring(parse_json(Properties).requestbody.Properties.RoleDefinitionId)
+| extend PrincipalId = tostring(parse_json(Properties).requestbody.Properties.PrincipalId)
+| project TimeGenerated, 
+          Caller, 
+          CallerIpAddress, 
+          Scope = _ResourceId, 
+          RoleDefinition, 
+          PrincipalId
+| sort by TimeGenerated desc
