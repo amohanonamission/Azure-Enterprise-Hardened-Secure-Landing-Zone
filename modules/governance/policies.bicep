@@ -20,7 +20,7 @@ var requireTagPolicyId = '/providers/Microsoft.Authorization/policyDefinitions/8
 
 
 // ==========================================
-// POLICY ASSIGNMENTS   -   THOU SHALL NOT PASS
+// POLICY ASSIGNMENTS   -   THOU SHALL NOT BY-PASS
 // ==========================================
 
 // 1. The Auditor's Twist: Block Public IPs
