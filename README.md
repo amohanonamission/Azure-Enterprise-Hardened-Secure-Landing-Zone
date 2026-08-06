@@ -82,7 +82,7 @@ Repo: Azure-Enterprise-Hardened-Secure-Landing-Zone/
 ├── deploy.sh                             # Local execution wrapper
 ├── main.bicep                            # The Orchestrator
 └── main.parameters.json                  # Local environment variables (GitIgnored)
-
+```
 
 ## Visual Documentation 
 
