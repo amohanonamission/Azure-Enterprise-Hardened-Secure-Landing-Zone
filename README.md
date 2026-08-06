@@ -168,12 +168,12 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 * **Adaptive Network Hardening (JIT):** Documentation for implementing Just-In-Time (JIT) access. This ensures that Port 22/3389 are "Closed by Default" and only opened via a time-limited, RBAC-approved request.
 * **Policy-as-Code (Azure Security Benchmark):** Integrated guidance on assigning the ASB (v4) initiative to the Resource Group. This ensures any resource that drifts from the security baseline is flagged as "Non-Compliant" automatically.
 
-## Visual Documentation
+## Visual Documentation 
 
-### Architecture Diagram (VS Code)
+### Architecture Diagrams
  
 ![Architecture Diagram](docs/images/vscode-networkdiagram.png)
-* **(IMG001- Diagram shows the Vscode visualizer diagram overview of the Hub-Spoke network.)**
+* **(IMG001- Image illustrates the VS Code visualizer overview of the Hub-Spoke network)**
 
 ![Architecture Diagram](docs/images/Azure-Visualizer.png)
 * **(IMG002- Diagram shows the Azure visualizer diagram overview of the Hub-Spoke network.)**
