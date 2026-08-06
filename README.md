@@ -176,14 +176,15 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 * **(IMG001- Image illustrates the VS Code visualizer overview of the Hub-Spoke network)**
 
 ![Architecture Diagram](docs/images/Azure-Visualizer.png)
-* **(IMG002- Diagram shows the Azure visualizer diagram overview of the Hub-Spoke network.)**
+* **(IMG002- Image illustrates the Azure visualizer diagram overview of the Hub-Spoke network)**
 
-### Network Watcher Topology:
+### Network Topology
 
 ![Architecture Diagram](docs/images/Deployment-Proof-Azure.png)
-* **(IMG003- Diagram shows the Azure Network Watcher Topology.)**
+* **(IMG003- Diagram displays the Azure Network Watcher Topology)**
+
 ![Architecture Diagram](docs/images/network-watcher.png)
-* **(IMG004- Diagram shows the Azure Resource Group overview.)**
+* **(IMG004- Diagram displays the Azure Resource Group Deployment Overview)**
 
 ### Resource Lock Verification (Lock Test): 
 
