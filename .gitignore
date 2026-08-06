@@ -1,0 +1,18 @@
+# .gitignore
+
+# Azure Bicep / ARM
+*.parameters.json
+*.bicep-lock
+.azure/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sqlite
+
+# PowerShell / Break-Glass Script outputs
+*.csv
+*.txt
