@@ -9,7 +9,7 @@ param location string = 'centralindia'
 param prefix string = 'AMPT'
 param tags object = {
   Environment: 'Production'
-  CostCenter: 'SecOps-9001'
+  CostCenter: 'SecOps-2026'
   Owner: 'Arnav Mohan'
   Compliance: 'CISA-Level-2'
 }
@@ -79,6 +79,9 @@ module nsg './modules/network/nsg.bicep' = {
 module hub './modules/network/hub-vnet.bicep' = {
   name: 'hubDeploy'
   scope: rg
+  dependsOn: [
+    law // Forces Hub to wait until LAW exists
+  ]
   params: {
     location: location
     prefix: prefix
@@ -90,6 +93,9 @@ module hub './modules/network/hub-vnet.bicep' = {
 module spoke './modules/network/spoke-vnet.bicep' = {
   name: 'spokeDeploy'
   scope: rg
+  dependsOn: [
+    law // Forces Hub to wait until LAW exists
+  ]
   params: {
     location: location
     prefix: prefix
@@ -138,6 +144,8 @@ module firewall './modules/network/firewall.bicep' = {
     hubVnetName: hub.outputs.hubVnetName // Implicit dependency: Waits for Hub VNet
   }
   dependsOn: [
+    spoke
+    law
     peering // Best practice: Ensure peering is established before Firewall spins up
   ]
 }
@@ -149,6 +157,10 @@ module firewall './modules/network/firewall.bicep' = {
 module compute './modules/compute/compute.bicep' = {
   name: 'computeDeploy'
   scope: rg
+  dependsOn: [
+    spoke
+    law
+  ]
   params: {
     location: location
     prefix: prefix
@@ -168,6 +180,10 @@ module compute './modules/compute/compute.bicep' = {
 module vault './modules/security/key-vault.bicep' = {
   name: 'vaultDeploy'
   scope: rg
+  dependsOn: [
+    spoke
+    law
+  ]
   params: {
     location: location
     prefix: prefix
