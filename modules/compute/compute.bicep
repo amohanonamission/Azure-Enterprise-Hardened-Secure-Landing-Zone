@@ -62,7 +62,7 @@ resource webVm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
     type: 'SystemAssigned' // Grants the VM an identity in Entra ID
   }
   properties: {
-    hardwareProfile: { vmSize: 'Standard_D2s_v3' }
+    hardwareProfile: { vmSize: 'Standard_B1s' }
     storageProfile: {
       imageReference: { publisher: 'Canonical', offer: '0001-com-ubuntu-server-focal', sku: '20_04-lts-gen2', version: 'latest' }
       osDisk: { createOption: 'FromImage', managedDisk: { storageAccountType: 'Standard_LRS' } }
@@ -84,7 +84,7 @@ resource dataVm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
     type: 'SystemAssigned' 
   }
   properties: {
-    hardwareProfile: { vmSize: 'Standard_D2s_v3' }
+    hardwareProfile: { vmSize: 'Standard_B1s' }
     storageProfile: {
       imageReference: { publisher: 'Canonical', offer: '0001-com-ubuntu-server-focal', sku: '20_04-lts-gen2', version: 'latest' }
       osDisk: { createOption: 'FromImage', managedDisk: { storageAccountType: 'Standard_LRS' } }
@@ -107,6 +107,7 @@ resource webVmExpirer 'Microsoft.Compute/virtualMachines/extensions@2023-03-01' 
   parent: webVm
   name: 'ForcePasswordChange'
   location: location
+  tags: tags // Added tags to pass Azure Policy validation
   properties: {
     publisher: 'Microsoft.Azure.Extensions'
     type: 'CustomScript'
@@ -123,6 +124,7 @@ resource dataVmExpirer 'Microsoft.Compute/virtualMachines/extensions@2023-03-01'
   parent: dataVm
   name: 'ForcePasswordChange'
   location: location
+  tags: tags
   properties: {
     publisher: 'Microsoft.Azure.Extensions'
     type: 'CustomScript'
