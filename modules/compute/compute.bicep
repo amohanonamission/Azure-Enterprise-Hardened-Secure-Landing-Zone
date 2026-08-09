@@ -62,7 +62,7 @@ resource webVm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
     type: 'SystemAssigned' // Grants the VM an identity in Entra ID
   }
   properties: {
-    hardwareProfile: { vmSize: 'Standard_D2s_v3' }
+    hardwareProfile: { vmSize: 'Standard_D2s_v2' }
     storageProfile: {
       imageReference: { publisher: 'Canonical', offer: '0001-com-ubuntu-server-focal', sku: '20_04-lts-gen2', version: 'latest' }
       osDisk: { createOption: 'FromImage', managedDisk: { storageAccountType: 'Standard_LRS' } }
@@ -84,7 +84,7 @@ resource dataVm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
     type: 'SystemAssigned' 
   }
   properties: {
-    hardwareProfile: { vmSize: 'Standard_D2s_v3' }
+    hardwareProfile: { vmSize: 'Standard_D2s_v2' }
     storageProfile: {
       imageReference: { publisher: 'Canonical', offer: '0001-com-ubuntu-server-focal', sku: '20_04-lts-gen2', version: 'latest' }
       osDisk: { createOption: 'FromImage', managedDisk: { storageAccountType: 'Standard_LRS' } }
