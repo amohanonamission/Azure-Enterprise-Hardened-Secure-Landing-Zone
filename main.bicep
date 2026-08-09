@@ -80,6 +80,7 @@ module hub './modules/network/hub-vnet.bicep' = {
   name: 'hubDeploy'
   scope: rg
   dependsOn: [
+#disable-next-line no-unnecessary-dependson
     law // Forces Hub to wait until LAW exists
   ]
   params: {
@@ -94,6 +95,7 @@ module spoke './modules/network/spoke-vnet.bicep' = {
   name: 'spokeDeploy'
   scope: rg
   dependsOn: [
+    #disable-next-line no-unnecessary-dependson
     law // Forces Hub to wait until LAW exists
   ]
   params: {
@@ -144,7 +146,9 @@ module firewall './modules/network/firewall.bicep' = {
     hubVnetName: hub.outputs.hubVnetName // Implicit dependency: Waits for Hub VNet
   }
   dependsOn: [
+    #disable-next-line no-unnecessary-dependson
     spoke
+    #disable-next-line no-unnecessary-dependson
     law
     peering // Best practice: Ensure peering is established before Firewall spins up
   ]
@@ -158,7 +162,9 @@ module compute './modules/compute/compute.bicep' = {
   name: 'computeDeploy'
   scope: rg
   dependsOn: [
+    #disable-next-line no-unnecessary-dependson
     spoke
+    #disable-next-line no-unnecessary-dependson
     law
   ]
   params: {
@@ -181,7 +187,9 @@ module vault './modules/security/key-vault.bicep' = {
   name: 'vaultDeploy'
   scope: rg
   dependsOn: [
+    #disable-next-line no-unnecessary-dependson
     spoke
+    #disable-next-line no-unnecessary-dependson
     law
   ]
   params: {
