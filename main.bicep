@@ -5,7 +5,7 @@ targetScope = 'subscription' // Allows us to create the Resource Group natively
 // PARAMETERS
 // ==========================================
 param rgName string = 'AMPT-Enterprise-Security'
-param location string = 'centralindia'
+param location string = 'southindia'
 param prefix string = 'AMPT'
 param tags object = {
   Environment: 'Production'
