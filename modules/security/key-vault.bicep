@@ -62,6 +62,7 @@ resource kvPrivateEndpoint 'Microsoft.Network/privateEndpoints@2023-05-01' = {
 resource kvDnsZone 'Microsoft.Network/privateDnsZones@2020-06-01' = {
   name: 'privatelink.vaultcore.azure.net'
   location: 'global'
+  tags: tags
 }
 
 // Link the DNS Zone to the Spoke VNet
@@ -132,4 +133,3 @@ resource kvDiag 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
     ]
   }
 }
-
