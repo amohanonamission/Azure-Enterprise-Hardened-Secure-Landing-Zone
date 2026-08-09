@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "rgName": {
+      "value": "AMPT-Enterprise-Security"
+    },
+    "location": {
+      "value": "centralindia"
+    },
+    "prefix": {
+      "value": "AMPT"
+    },
+    "tags": {
+      "value": {
+        "Environment": "Production",
+        "CostCenter": "SecOps-2026",
+        "Owner": "Arnav Mohan",
+        "Compliance": "CISA-Level-2"
+      }
+    },
+    "adminUsername": {
+      "value": "azsecadmin"
+    },
+    "adminPassword": {
+      "value": "TempPass!@#2026Secure"
+    }
+  }
+}
