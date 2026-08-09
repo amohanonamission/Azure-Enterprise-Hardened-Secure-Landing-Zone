@@ -6,7 +6,7 @@
 set -e
 
 # Define Variables
-LOCATION="centralindia"
+LOCATION="southindia"
 STACK_NAME="AMPT-2026-Foundation-Stack"
 TEMPLATE_FILE="main.bicep"
 PARAM_FILE="main.parameters.json"
