@@ -11,6 +11,12 @@ resource hubVnet 'Microsoft.Network/virtualNetworks@2023-05-01' existing = {
   name: hubVnetName
 }
 
+// Reference the AzureBastionSubnet explicitly by NAME
+resource bastionSubnet 'Microsoft.Network/virtualNetworks/subnets@2023-05-01' existing = {
+  name: 'AzureBastionSubnet'
+  parent: hubVnet
+}
+
 // 1. Bastion Public IP (Required for the Bastion service itself, not your VMs)
 resource bastionPip 'Microsoft.Network/publicIPAddresses@2023-05-01' = {
   name: 'pip-${prefix}-bastion-001'
@@ -38,7 +44,7 @@ resource bastionHost 'Microsoft.Network/bastionHosts@2023-05-01' = {
         name: 'IpConf'
         properties: {
           subnet: {
-            id: hubVnet.properties.subnets[0].id // Assumes AzureBastionSubnet is index 0 in hub-vnet.bicep
+            id: bastionSubnet.id // Explicitly using the named subnet ID
           }
           publicIPAddress: {
             id: bastionPip.id
