@@ -69,6 +69,7 @@ resource kvDnsZone 'Microsoft.Network/privateDnsZones@2020-06-01' = {
 resource dnsLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2020-06-01' = {
   parent: kvDnsZone
   name: 'link-to-spoke'
+  tags: tags
   location: 'global'
   properties: {
     registrationEnabled: false
