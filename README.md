@@ -112,7 +112,7 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 
 ### Network Topology
 
-![Architecture Diagram](docs/images/Deployment-Proof-Azure.png)
+![Architecture Diagram](docs/images/network-watcher-topology.png)
 * **(IMG003- Image illustrates the Azure Network Watcher Topology)**
 
 ![Architecture Diagram](docs/images/network-watcher.png)
