@@ -115,7 +115,7 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 ![Architecture Diagram](docs/images/network-watcher-topology.png)
 * **(IMG003- Image illustrates the Azure Network Watcher Topology)**
 
-![Architecture Diagram](docs/images/network-watcher.png)
+![Architecture Diagram](docs/images/resource-group-deployment-confirmation.jpg)
 * **(IMG004- Image illustrates the Azure Resource Group Deployment Overview)**
 
 ### Security & Governance Validation
