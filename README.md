@@ -123,7 +123,7 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 ![Architecture Diagram](docs/images/nsg-rules-in-out.png)
 * **(IMG005- Image illustrates the Network Security Group Inbound/Outbound Explicit Deny Rules)**
 
-![Architecture Diagram](docs/keyvault-networking.png)
+![Architecture Diagram](docs/images/keyvault-networking.png)
 * **(IMG006- Image illustrates the Key Vault isolated via Azure Private Link with Public Network Access disabled)**
 
 ### Key Vault (Managed Identity)
