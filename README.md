@@ -126,8 +126,7 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 ![Architecture Diagram](docs/images/keyvault-networking.png)
 * **(IMG006- Image illustrates the Key Vault isolated via Azure Private Link with Public Network Access disabled)**
 
-### Key Vault (Managed Identity)
-### Private Link Verification: 
-### NSG Flow 
+![Architecture Diagram](docs/images/policy-dashboard-overview.png)
+* **(IMG006- Image illustrates the Key Vault isolated via Azure Private Link with Public Network Access disabled)**
 
 ---
