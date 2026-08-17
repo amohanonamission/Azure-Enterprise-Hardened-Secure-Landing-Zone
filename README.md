@@ -132,11 +132,11 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 ### Security & Governance Validation:
 
 ![Architecture Diagram](docs/images/defender-for-cloud.png)
-* **(IMG008- Image illustrates the Key Vault isolated via Azure Private Link with Public Network Access disabled)**
+* **(IMG008- Image illustrates the resources covered under Defender for Cloud protection coverage)**
 
 ![Architecture Diagram](docs/images/policy-assignments.png)
-* **(IMG009- Image illustrates the Key Vault isolated via Azure Private Link with Public Network Access disabled)**
+* **(IMG009- Image illustrates the Policy and Initiatives being assigned to the deployments as per compliance requirments)**
 
 ![Architecture Diagram](docs/images/policy-dashboard-overview.png)
-* **(IMG010- Image illustrates the Key Vault isolated via Azure Private Link with Public Network Access disabled)**
+* **(IMG010- Image illustrates the Policy Overview Dashboard and the Overall Risk Scores of the implementation)**
 ---
