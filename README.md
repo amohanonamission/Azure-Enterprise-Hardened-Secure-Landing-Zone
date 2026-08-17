@@ -87,17 +87,17 @@ Repo: Azure-Enterprise-Hardened-Secure-Landing-Zone/
 ## ⚔️ SecOps: Day 2 Operational & Governance Configurations
 Unlike traditional deployments, this lab focuses on Operational Sustainability using the following "Modern SecOps" pillars:
 
-Automated Threat Hunting: See /monitoring/Threat-Detection-Queries.kql for custom Kusto Query Language (KQL) rules designed to detect unauthorized NSG modifications and Key Vault access policy tampering via Sentinel.
+* **Automated Threat Hunting:** See /monitoring/Threat-Detection-Queries.kql for custom Kusto Query Language (KQL) rules designed to detect unauthorized NSG modifications and Key Vault access policy tampering via Sentinel.
 
-Business Continuity Planning (BCP): See /identity/setup-break-glass.ps1 for the deployment logic of a Cloud-Only Emergency Access Account, intentionally bypassing Conditional Access to prevent lockout during Entra ID outages.
+* **Business Continuity Planning (BCP):** See /identity/setup-break-glass.ps1 for the deployment logic of a Cloud-Only Emergency Access Account, intentionally bypassing Conditional Access to prevent lockout during Entra ID outages.
 
-Microsoft Defender for Cloud (CSPM): Automated onboarding to the Defender for Cloud portal to monitor the "Security Score" and remediate high-risk findings (like open management ports).
+* **Microsoft Defender for Cloud (CSPM):** Automated onboarding to the Defender for Cloud portal to monitor the "Security Score" and remediate high-risk findings (like open management ports).
 
-Encryption at Host: Utilizing the modern successor to Azure Disk Encryption (ADE) to ensure temporary disks, OS caches, and data disks are encrypted at the source with zero performance overhead.
+* **Encryption at Host:** Utilizing the modern successor to Azure Disk Encryption (ADE) to ensure temporary disks, OS caches, and data disks are encrypted at the source with zero performance overhead.
 
-Adaptive Network Hardening (JIT): Documentation for implementing Just-In-Time (JIT) access. This ensures that management ports (22/3389) are "Closed by Default" and only opened via a time-limited, RBAC-approved request.
+* **Adaptive Network Hardening (JIT):** Documentation for implementing Just-In-Time (JIT) access. This ensures that management ports (22/3389) are "Closed by Default" and only opened via a time-limited, RBAC-approved request.
 
-Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dynamically flag any resource that drifts from the security baseline as "Non-Compliant."
+* **Policy-as-Code:** Assigning the "Azure Security Benchmark (v4)" initiative to dynamically flag any resource that drifts from the security baseline as "Non-Compliant."
 
 
 ## Visual Documentation 
