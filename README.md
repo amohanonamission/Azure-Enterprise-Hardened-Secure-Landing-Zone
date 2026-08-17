@@ -127,7 +127,7 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 * **(IMG006- Image illustrates the Key Vault isolated via Azure Private Link with Public Network Access disabled)**
 
 ![Architecture Diagram](docs/images/Bastion-access-vm.png)
-* **(IMG007- Image illustrates the Key Vault isolated via Azure Private Link with Public Network Access disabled)**
+* **(IMG007- Image illustrates VM in the web subnet accessed via browser-based Bastion connection)**
 
 ### Security & Governance Validation:
 
