@@ -143,10 +143,26 @@ Continuous Compliance & GRC Reality: Evaluated the baseline infrastructure again
 * **(IMG010- Image illustrates the Policy and Initiatives being assigned to the deployments as per compliance requirments)**
 ------
 
-## Challenges & Architectural Solutions
+## 🚧 Challenges & Architectural Solutions
 
 * **Regional Capacity Constraints:** Navigated strict Standard_B2s vCPU quota limits in primary regions by dynamically refactoring the deployment stack to southindia, updating policy location guardrails in tandem.
 
 * **Soft-Delete State Locks:** Engineered bypasses for hidden Azure Resource Manager (ARM) race conditions, specifically addressing Log Analytics Workspace and Key Vault soft-delete retention locks during iterative CI/CD teardowns.
 
 * **Asymmetric Routing & Bastion:** Resolved Zero-Trust forced-tunneling conflicts by injecting high-priority explicit allow rules in the Spoke NSGs, ensuring Bastion TLS traffic could bypass the default-deny perimeter without breaking the UDR firewall routes.
+
+## 📉 Known Limitations (Accepted Risks)
+Budget-Restricted CSPM: To strictly control cloud consumption costs during development, premium features such as Microsoft Defender for Servers (Plan 2) were omitted. This naturally limits Just-In-Time (JIT) VM access availability and OS-level vulnerability scanning, accounting for the initial 17% compliance score against the Microsoft Cloud Security Benchmark.
+
+Single-Region High Availability: The current architecture is deployed exclusively to the southindia region. While resilient at a zonal level, it lacks cross-region disaster recovery (DR). In a true Tier-1 enterprise environment, a secondary paired region would be required.
+
+Platform-Managed Keys (PMK): Currently, encryption-at-rest relies on Microsoft's default platform-managed keys. While secure, strict financial sector compliance often dictates Customer-Managed Keys (CMK) backed by a dedicated Hardware Security Module (HSM).
+
+## 🚀 Future Improvements (Roadmap)
+Automated CI/CD Pipeline Gates: Finalize the GitHub Actions workflow using strict OIDC (passwordless) authentication, incorporating a mandatory manual approval gate for the az deployment sub what-if output before execution on the tenant.
+
+Sentinel SOAR Integration: Transition from basic KQL threat hunting to automated response. Implement Azure Logic Apps (Playbooks) triggered by Sentinel to automatically isolate compromised VMs or revoke compromised Entra ID sessions.
+
+Customer-Managed Keys (CMK) via Key Vault: Upgrade the storage accounts and managed disks to utilize CMK for encryption-at-rest, ensuring cryptographic erasure capabilities and complete key lifecycle ownership.
+
+Azure Front Door & WAF: Implement a global load balancer and Web Application Firewall (WAF) at the edge to inspect incoming HTTPS traffic before it ever reaches the Hub VNet perimeter.
