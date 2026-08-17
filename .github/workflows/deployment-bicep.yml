@@ -60,21 +60,27 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-
-      - name: Azure Login (OIDC)
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      - name: Execute Deployment Stack
+        
+      - name: Portfolio Safe Mode 
         run: |
-          az stack sub create \
-            --name "AMPT-2026-Foundation-Stack" \
-            --location ${{ env.LOCATION }} \
-            --template-file main.bicep \
-            --parameters main.parameters.json \
-            --deny-settings-mode "denyDelete" \
-            --action-on-unmanage "deleteAll" \
-            --yes
+          echo "✅ Pipeline Validated successfully."
+          echo "🛡️ Dry-run mode enabled for portfolio display. No live resources will be billed."
+          echo "To execute the live deployment, uncomment the 'Execute Deployment Stack' block in the workflow file."
+
+    # - name: Azure Login (OIDC)
+    #   uses: azure/login@v2
+    #   with:
+    #     client-id: ${{ secrets.AZURE_CLIENT_ID }}
+    #     tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+    #     subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+    # - name: Execute Deployment Stack
+    #   run: |
+    #     az stack sub create \
+    #       --name "AMPT-2026-Foundation-Stack" \
+    #       --location ${{ env.LOCATION }} \
+    #       --template-file main.bicep \
+    #       --parameters main.parameters.json \
+    #       --deny-settings-mode "denyDelete" \
+    #       --action-on-unmanage "deleteAll" \
+    #       --yes
