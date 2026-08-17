@@ -102,7 +102,7 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 Continuous Compliance & GRC Reality: Evaluated the baseline infrastructure against the Microsoft Cloud Security Benchmark (ASB). Documented the inherent friction between a secure IaC deployment (78% general health) and strict GRC framework requirements (17% initial ASB compliance). Identified GRC gaps—such as missing premium Defender for Servers licensing and OS-level agents—proving the necessity of iterative Day 2 risk acceptance and remediation.
 
 
-## Visual Documentation 
+## 🖥️ Visual Documentation 
 ---
 ### Architecture Diagrams:
 ---
