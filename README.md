@@ -101,9 +101,9 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 
 
 ## Visual Documentation 
-
+---
 ### Architecture Diagrams:
-
+---
 ![Architecture Diagram](docs/images/azure-resource-visualizer.png)
 * **(IMG001- Image illustrates the Azure visualizer diagram overview of the Hub-Spoke network)**
 ---
@@ -111,7 +111,7 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 * **(IMG002- Image illustrates the VS Code visualizer overview of the Hub-Spoke network)**
 ---
 ### Network Topology:
-
+---
 ![Architecture Diagram](docs/images/network-watcher-topology.png)
 * **(IMG003- Image illustrates the Azure Network Watcher Topology)**
 ---
@@ -119,7 +119,7 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 * **(IMG004- Image illustrates the Azure Resource Group Deployment Overview)**
 ---
 ### Secure Network Connectivity:
-
+---
 ![Architecture Diagram](docs/images/nsg-rules-in-out.png)
 * **(IMG005- Image illustrates the Network Security Group Inbound/Outbound Explicit Deny Rules)**
 ---
@@ -130,7 +130,7 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 * **(IMG007- Image illustrates VM in the web subnet accessed via browser-based Bastion connection)**
 ---
 ### Security & Governance Validation:
-
+---
 ![Architecture Diagram](docs/images/defender-for-cloud.png)
 * **(IMG008- Image illustrates the resources covered under Defender for Cloud protection coverage)**
 ---
