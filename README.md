@@ -106,37 +106,37 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 
 ![Architecture Diagram](docs/images/azure-resource-visualizer.png)
 * **(IMG001- Image illustrates the Azure visualizer diagram overview of the Hub-Spoke network)**
-
+---
 ![Architecture Diagram](docs/images/vscode-bicep-visualizer.png)
 * **(IMG002- Image illustrates the VS Code visualizer overview of the Hub-Spoke network)**
-
+---
 ### Network Topology:
 
 ![Architecture Diagram](docs/images/network-watcher-topology.png)
 * **(IMG003- Image illustrates the Azure Network Watcher Topology)**
-
+---
 ![Architecture Diagram](docs/images/resource-group-deployment-confirmation.jpg)
 * **(IMG004- Image illustrates the Azure Resource Group Deployment Overview)**
-
+---
 ### Secure Network Connectivity:
 
 ![Architecture Diagram](docs/images/nsg-rules-in-out.png)
 * **(IMG005- Image illustrates the Network Security Group Inbound/Outbound Explicit Deny Rules)**
-
+---
 ![Architecture Diagram](docs/images/keyvault-networking.png)
 * **(IMG006- Image illustrates the Key Vault isolated via Azure Private Link with Public Network Access disabled)**
-
+---
 ![Architecture Diagram](docs/images/Bastion-access-vm.png)
 * **(IMG007- Image illustrates VM in the web subnet accessed via browser-based Bastion connection)**
-
+---
 ### Security & Governance Validation:
 
 ![Architecture Diagram](docs/images/defender-for-cloud.png)
 * **(IMG008- Image illustrates the resources covered under Defender for Cloud protection coverage)**
-
+---
 ![Architecture Diagram](docs/images/policy-assignments.png)
 * **(IMG009- Image illustrates the Policy and Initiatives being assigned to the deployments as per compliance requirments)**
-
+---
 ![Architecture Diagram](docs/images/policy-dashboard-overview.png)
 * **(IMG010- Image illustrates the Policy Overview Dashboard and the Overall Risk Scores of the implementation)**
 ---
