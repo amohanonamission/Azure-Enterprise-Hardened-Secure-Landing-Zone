@@ -139,4 +139,4 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 ---
 ![Architecture Diagram](docs/images/policy-dashboard-overview.png)
 * **(IMG010- Image illustrates the Policy Overview Dashboard and the Overall Risk Scores of the implementation)**
----
+------
