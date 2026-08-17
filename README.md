@@ -103,12 +103,12 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 ## Visual Documentation 
 
 ### Architecture Diagrams:
- 
-![Architecture Diagram](docs/images/vscode-bicep-visualizer.png)
-* **(IMG001- Image illustrates the VS Code visualizer overview of the Hub-Spoke network)**
 
 ![Architecture Diagram](docs/images/azure-resource-visualizer.png)
-* **(IMG002- Image illustrates the Azure visualizer diagram overview of the Hub-Spoke network)**
+* **(IMG001- Image illustrates the Azure visualizer diagram overview of the Hub-Spoke network)**
+
+![Architecture Diagram](docs/images/vscode-bicep-visualizer.png)
+* **(IMG002- Image illustrates the VS Code visualizer overview of the Hub-Spoke network)**
 
 ### Network Topology:
 
