@@ -102,7 +102,7 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 
 ## Visual Documentation 
 
-### Architecture Diagrams
+### Architecture Diagrams:
  
 ![Architecture Diagram](docs/images/vscode-bicep-visualizer.png)
 * **(IMG001- Image illustrates the VS Code visualizer overview of the Hub-Spoke network)**
@@ -110,7 +110,7 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 ![Architecture Diagram](docs/images/azure-resource-visualizer.png)
 * **(IMG002- Image illustrates the Azure visualizer diagram overview of the Hub-Spoke network)**
 
-### Network Topology
+### Network Topology:
 
 ![Architecture Diagram](docs/images/network-watcher-topology.png)
 * **(IMG003- Image illustrates the Azure Network Watcher Topology)**
@@ -118,7 +118,7 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 ![Architecture Diagram](docs/images/resource-group-deployment-confirmation.jpg)
 * **(IMG004- Image illustrates the Azure Resource Group Deployment Overview)**
 
-### Security & Governance Validation
+### Secure Network Connectivity:
 
 ![Architecture Diagram](docs/images/nsg-rules-in-out.png)
 * **(IMG005- Image illustrates the Network Security Group Inbound/Outbound Explicit Deny Rules)**
@@ -128,6 +128,8 @@ Policy-as-Code: Assigning the "Azure Security Benchmark (v4)" initiative to dyna
 
 ![Architecture Diagram](docs/images/Bastion-access-vm.png)
 * **(IMG006- Image illustrates the Key Vault isolated via Azure Private Link with Public Network Access disabled)**
+
+### Security & Governance Validation:
 
 ![Architecture Diagram](docs/images/defender-for-cloud.png)
 * **(IMG006- Image illustrates the Key Vault isolated via Azure Private Link with Public Network Access disabled)**
