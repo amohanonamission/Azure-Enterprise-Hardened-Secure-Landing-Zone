@@ -97,7 +97,17 @@ Unlike traditional deployments, this lab focuses on Operational Sustainability u
 
 * **Adaptive Network Hardening (JIT):** Documentation for implementing Just-In-Time (JIT) access. This ensures that management ports (22/3389) are "Closed by Default" and only opened via a time-limited, RBAC-approved request.
 
-* **Policy-as-Code:** Assigning the "Azure Security Benchmark (v4)" initiative to dynamically flag any resource that drifts from the security baseline as "Non-Compliant."
+* **Policy-as-Code:** Assigning the "Microsoft Cloud Security Benchmark" initiative to dynamically flag any resource that drifts from the security baseline as "Non-Compliant."
+
+Continuous Compliance & GRC Reality: Evaluated the baseline infrastructure against the Microsoft Cloud Security Benchmark (ASB). Documented the inherent friction between a secure IaC deployment (78% general health) and strict GRC framework requirements (17% initial ASB compliance). Identified GRC gaps—such as missing premium Defender for Servers licensing and OS-level agents—proving the necessity of iterative Day 2 risk acceptance and remediation.
+
+## Challenges & Architectural Solutions
+
+Regional Capacity Constraints: Navigated strict Standard_B2s vCPU quota limits in primary regions by dynamically refactoring the deployment stack to southindia, updating policy location guardrails in tandem.
+
+Soft-Delete State Locks: Engineered bypasses for hidden Azure Resource Manager (ARM) race conditions, specifically addressing Log Analytics Workspace and Key Vault soft-delete retention locks during iterative CI/CD teardowns.
+
+Asymmetric Routing & Bastion: Resolved Zero-Trust forced-tunneling conflicts by injecting high-priority explicit allow rules in the Spoke NSGs, ensuring Bastion TLS traffic could bypass the default-deny perimeter without breaking the UDR firewall routes.
 
 
 ## Visual Documentation 
