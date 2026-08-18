@@ -4,7 +4,7 @@
 
 ### Objective
 
-This repository deploys an **Enterprise-Grade Cloud Foundation** in Azure using modular Infrastructure as Code (Bicep). Designed for heavily **regulated environments** (Banking/Financial Services), it implements the **Microsoft Cloud Adoption Framework (CAF)** and **Zero-Trust architecture** to build a secure, immutable, and audited "Hardened Shell" for production workloads.
+This repository deploys an **Enterprise-Style Cloud Foundation** in Azure using modular Infrastructure as Code (Bicep). Designed to model security and governance requirements commonly found in **regulated environments** such as banking and financial services. It implements the **Microsoft Cloud Adoption Framework (CAF)** and **Zero-Trust architecture** to build a secure, immutable, and audited "Hardened Shell" for production workloads.
 
 Beyond solving standard infrastructure deployment, this project serves as a comprehensive **Purple Team / Cyber Risk lab**, demonstrating Identity-based access, Layer 7 Perimeter Security, Continuous Compliance, and Automated Threat Hunting.
 
