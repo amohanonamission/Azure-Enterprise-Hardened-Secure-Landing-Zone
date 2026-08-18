@@ -1,6 +1,7 @@
 # Azure Enterprise Secure Landing Zone (Zero-Trust & GRC Foundation)
 
-🚧 **Status:** Active Development | **Focus:** Infrastructure Security, CISA Audit Compliance, DevSecOps
+🚧 **Status:** Active Development
+🎯 **Focus:** Azure Infrastructure Security • Governance • GRC • DevSecOps • Cloud Security
 
 ### Objective
 
