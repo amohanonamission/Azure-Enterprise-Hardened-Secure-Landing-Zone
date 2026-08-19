@@ -97,26 +97,27 @@ Azure-Enterprise-Hardened-Secure-Landing-Zone/
 │   └── images/                           # Architecture and validation evidence
 ├── modules/
 │   ├── network/
-│   │   ├── hub-vnet.bicep
-│   │   ├── spoke-vnet.bicep
-│   │   ├── peering.bicep
-│   │   ├── bastion.bicep
-│   │   ├── firewall.bicep
-│   │   └── nsg.bicep
+│   │   ├── hub-vnet.bicep                # The central transit hub
+│   │   ├── spoke-vnet.bicep              # Contains Web Subnet & Data Subnet
+│   │   ├── peering.bicep                 # The bridge between Hub and Spoke
+│   │   ├── bastion.bicep                 # Secure OOBM access
+│   │   ├── firewall.bicep                # Layer 7 Egress control
+│   │   └── nsg.bicep                     # Layer 4 Internal traffic control
 │   ├── compute/
-│   │   └── compute.bicep
+│   │   └── compute.bicep                 # Deploys Ubuntu VM 1 (Web) and VM 2 (Data)
 │   ├── governance/
-│   │   └── policies.bicep
+│   │   └── policies.bicep                # Preventative Azure Policies
 │   └── security/
-│       ├── keyvault.bicep
-│       └── law.bicep
+│       ├── keyvault.bicep                # Private Link isolated secrets
+│       └── law.bicep                     # Log Analytics Workspace
 ├── identity/
-│   └── setup-break-glass.ps1
+│   └── setup-break-glass.ps1             # BCP Emergency Access Script
 ├── monitoring/
-│   └── Threat-Detection-Queries.kql
-├── bicepconfig.json
-├── deploy.sh
-├── main.bicep
+│   └── Threat-Detection-Queries.kql      # Sentinel detection logic
+├──.gitignore
+├── bicepconfig.json                      # Code quality rules
+├── deploy.sh                             # Local execution wrapper
+├── main.bicep                            # The Orchestrator
 └── main.parameters.json                  # Git-ignored environment parameters
 ```
 
@@ -153,58 +154,80 @@ Controls requiring additional operational processes
 Rather than hiding these gaps, they are documented as accepted risks and remediation opportunities. This reflects a more realistic security engineering workflow: Deploy → Assess → Identify gaps → Accept or remediate risk → Reassess
 
 ## 🖥️ Visual Documentation
-Architecture Diagrams
-(Azure Resource Visualizer showing the Hub-Spoke architecture.)
-
-(VS Code Bicep visualizer showing infrastructure dependencies.)
-
-Network Topology
-(Azure Network Watcher topology showing deployed network relationships.)
-
-(Resource Group deployment confirmation.)
-
-Secure Network Connectivity
-(Explicit inbound and outbound NSG deny rules.)
-
-(Key Vault configured with Private Link and public network access disabled.)
-
-(VM administration through Azure Bastion.)
-
-Security & Governance Validation
-(Defender for Cloud protection coverage.)
-
-(Azure Policy overview and security posture results.)
-
-(Policy and security benchmark assignments applied to the environment.)
+---
+### Architecture Diagrams:
+---
+![Architecture Diagram](docs/images/azure-resource-visualizer.png)
+* **(IMG001- Image illustrates the Azure Resource Visualizer showing the Hub-Spoke architecture.)**
+---
+![Architecture Diagram](docs/images/vscode-bicep-visualizer.png)
+* **(IMG002- Image illustrates the VS Code Bicep visualizer showing infrastructure dependencies.)**
+---
+### Network Topology:
+---
+![Architecture Diagram](docs/images/network-watcher-topology.png)
+* **(IMG003- Image illustrates the Azure Network Watcher topology showing deployed network relationships.)**
+---
+![Architecture Diagram](docs/images/resource-group-deployment-confirmation.jpg)
+* **(IMG004- Image illustrates the Azure Resource Group deployment confirmation.)**
+---
+### Secure Network Connectivity:
+---
+![Architecture Diagram](docs/images/nsg-rules-in-out.png)
+* **(IMG005- Image illustrates the Explicit inbound and outbound NSG deny rules.)**
+---
+![Architecture Diagram](docs/images/keyvault-networking.png)
+* **(IMG006- Image illustrates the Key Vault configured with Private Link and public network access disabled.)**
+---
+![Architecture Diagram](docs/images/Bastion-access-vm.png)
+* **(IMG007- Image illustrates VM administration through Azure Bastion.)**
+---
+### Security & Governance Validation:
+---
+![Architecture Diagram](docs/images/defender-for-cloud.png)
+* **(IMG008- Image illustrates the Defender for Cloud protection coverage.)**
+---
+![Architecture Diagram](docs/images/policy-dashboard-overview.png)
+* **(IMG009- Image illustrates the Azure Policy overview and security posture results.)**
+---
+![Architecture Diagram](docs/images/policy-assignments.png)
+* **(IMG010- Image illustrates the Policy and security benchmark assignments applied to the environment.)**
+------
 
 ## 🚧 Challenges & Architectural Solutions
-Regional Capacity Constraints: The initial deployment encountered Standard_B2s vCPU quota constraints in the primary deployment region. The infrastructure was subsequently refactored for South India, with Azure Policy location guardrails updated accordingly.
 
-Soft-Delete State Locks: Iterative deployments exposed Azure Resource Manager lifecycle constraints associated with soft-delete retention for services such as Log Analytics Workspace and Key Vault. The deployment process was adapted to account for these resource lifecycle states rather than treating teardown and redeployment as instantaneous operations.
+* **Regional Capacity Constraints:** The initial deployment encountered Standard_B2s vCPU quota constraints in the primary deployment region. The infrastructure was subsequently refactored for South India, with Azure Policy location guardrails updated accordingly.
 
-Asymmetric Routing & Bastion: Forced-tunneling and default-deny network controls introduced connectivity challenges for Azure Bastion. The architecture required carefully scoped higher-priority NSG allow rules so that Bastion management traffic could function without bypassing the intended network security model.
+* **Soft-Delete State Locks:** Iterative deployments exposed Azure Resource Manager lifecycle constraints associated with soft-delete retention for services such as Log Analytics Workspace and Key Vault. The deployment process was adapted to account for these resource lifecycle states rather than treating teardown and redeployment as instantaneous operations.
+
+* **Asymmetric Routing & Bastion:** Forced-tunneling and default-deny network controls introduced connectivity challenges for Azure Bastion. The architecture required carefully scoped higher-priority NSG allow rules so that Bastion management traffic could function without bypassing the intended network security model.
 
 ## 📉 Known Limitations & Accepted Risks
-Budget-Restricted CSPM: Premium security capabilities such as Microsoft Defender for Servers Plan 2 were intentionally excluded to control development costs. This limits capabilities such as certain JIT and OS-level vulnerability-management features and contributed to the initial compliance gaps observed against the Microsoft Cloud Security Benchmark.
 
-Single-Region Deployment: The current implementation operates in the South India region. Although the design can provide zonal resilience where supported, it does not currently implement cross-region disaster recovery. A production Tier-1 architecture would require a secondary region and an explicit DR strategy.
+* **Budget-Restricted CSPM:** Premium security capabilities such as Microsoft Defender for Servers Plan 2 were intentionally excluded to control development costs. This limits capabilities such as certain JIT and OS-level vulnerability-management features and contributed to the initial compliance gaps observed against the Microsoft Cloud Security Benchmark.
 
-Platform-Managed Keys: The current implementation relies on Azure platform-managed encryption keys. A future financial-sector implementation could introduce Customer-Managed Keys (CMK) backed by Azure Key Vault / Managed HSM depending on regulatory and organizational requirements.
+* **Single-Region Deployment:** The current implementation operates in the South India region. Although the design can provide zonal resilience where supported, it does not currently implement cross-region disaster recovery. A production Tier-1 architecture would require a secondary region and an explicit DR strategy.
 
-Lab / Demonstration Environment Notice
+* **Platform-Managed Keys:** The current implementation relies on Azure platform-managed encryption keys. A future financial-sector implementation could introduce Customer-Managed Keys (CMK) backed by Azure Key Vault / Managed HSM depending on regulatory and organizational requirements.
+
+---
+**Lab / Demonstration Environment Notice**
 This project is designed as a security engineering laboratory and portfolio implementation. It should not be interpreted as a production-ready enterprise landing zone without additional controls around High availability, Disaster recovery, Identity lifecycle management, Privileged Identity Management, Secret rotation, Certificate lifecycle management, SIEM/SOAR operations, Formal change management, Incident response procedures, Production-grade monitoring, Cost management, and Regulatory validation.
 
+---
 ## 🚀 Future Improvements
-OIDC-Based CI/CD: Finalize GitHub Actions authentication using OIDC / workload identity federation rather than long-lived deployment credentials. Add a mandatory review/approval stage around infrastructure what-if results before production-style execution.
 
-Sentinel SOAR Integration: Expand the existing KQL detections into automated response workflows using Microsoft Sentinel + Logic Apps. Potential responses include isolating compromised workloads, disabling compromised identities, revoking active sessions, or creating incident tickets.
+**1. OIDC-Based CI/CD:** Finalize GitHub Actions authentication using OIDC / workload identity federation rather than long-lived deployment credentials. Add a mandatory review/approval stage around infrastructure what-if results before production-style execution.
 
-Customer-Managed Keys: Introduce CMK-based encryption for selected workloads using Azure Key Vault or Managed HSM. This would demonstrate key lifecycle management and stronger cryptographic control for regulated workloads.
+**2. Sentinel SOAR Integration:** Expand the existing KQL detections into automated response workflows using Microsoft Sentinel + Logic Apps. Potential responses include isolating compromised workloads, disabling compromised identities, revoking active sessions, or creating incident tickets.
 
-Azure Front Door + WAF: Introduce Azure Front Door and Web Application Firewall capabilities to provide an internet-facing application security layer ahead of the workload environment.
+**3. Customer-Managed Keys:** Introduce CMK-based encryption for selected workloads using Azure Key Vault or Managed HSM. This would demonstrate key lifecycle management and stronger cryptographic control for regulated workloads.
 
-Multi-Region Resilience: Extend the architecture into a paired-region design with cross-region networking, backup strategy, recovery objectives, failover testing, and regional policy controls.
+**4. Azure Front Door + WAF:** Introduce Azure Front Door and Web Application Firewall capabilities to provide an internet-facing application security layer ahead of the workload environment.
 
+**5. Multi-Region Resilience:** Extend the architecture into a paired-region design with cross-region networking, backup strategy, recovery objectives, failover testing, and regional policy controls.
+
+---
 ## 📌 Project Takeaways
 This project demonstrates the principle that cloud security is not just about deploying secure resources. A mature cloud security architecture must connect:
 
