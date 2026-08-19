@@ -160,10 +160,33 @@ Single-Region High Availability: The current architecture is deployed exclusivel
 Platform-Managed Keys (PMK): Currently, encryption-at-rest relies on Microsoft's default platform-managed keys. While secure, strict financial sector compliance often dictates Customer-Managed Keys (CMK) backed by a dedicated Hardware Security Module (HSM).
 
 ## 🚀 Future Improvements (Roadmap)
-Automated CI/CD Pipeline Gates: Finalize the GitHub Actions workflow using strict OIDC (passwordless) authentication, incorporating a mandatory manual approval gate for the az deployment sub what-if output before execution on the tenant.
 
-Sentinel SOAR Integration: Transition from basic KQL threat hunting to automated response. Implement Azure Logic Apps (Playbooks) triggered by Sentinel to automatically isolate compromised VMs or revoke compromised Entra ID sessions.
+1. Automated CI/CD Pipeline Gates: Finalize the GitHub Actions workflow using strict OIDC (passwordless) authentication, incorporating a mandatory manual approval gate for the az deployment sub what-if output before execution on the tenant.
 
-Customer-Managed Keys (CMK) via Key Vault: Upgrade the storage accounts and managed disks to utilize CMK for encryption-at-rest, ensuring cryptographic erasure capabilities and complete key lifecycle ownership.
+2. Sentinel SOAR Integration: Transition from basic KQL threat hunting to automated response. Implement Azure Logic Apps (Playbooks) triggered by Sentinel to automatically isolate compromised VMs or revoke compromised Entra ID sessions.
 
-Azure Front Door & WAF: Implement a global load balancer and Web Application Firewall (WAF) at the edge to inspect incoming HTTPS traffic before it ever reaches the Hub VNet perimeter.
+3. Customer-Managed Keys (CMK) via Key Vault: Upgrade the storage accounts and managed disks to utilize CMK for encryption-at-rest, ensuring cryptographic erasure capabilities and complete key lifecycle ownership.
+
+4. Azure Front Door & WAF: Implement a global load balancer and Web Application Firewall (WAF) at the edge to inspect incoming HTTPS traffic before it ever reaches the Hub VNet perimeter.
+
+5. Multi-Region Resilience
+
+Extend the architecture into a paired-region design with:
+
+Cross-region networking
+Backup strategy
+Recovery objectives
+Failover testing
+Regional policy controls
+
+## 📌 Project Takeaways
+
+This project demonstrates the principle that cloud security is not just about deploying secure resources.
+
+A mature cloud security architecture must connect:
+
+Infrastructure → Identity → Network → Logging → Detection → Governance → Compliance → Operations
+
+The most valuable outcome of the project was not achieving a perfect compliance score.
+
+It was identifying why a technically secure deployment can still fail governance requirements, documenting those gaps, and designing the next iteration around them.
