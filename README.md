@@ -149,23 +149,26 @@ Unlike a deployment-only IaC exercise, this project also explores the operationa
 
 * **Policy-as-Code:** The environment uses the Microsoft Cloud Security Benchmark (MCSB) as a security baseline for evaluating configuration drift and identifying areas requiring remediation.
 
-Continuous Compliance & GRC Reality
+### Continuous Compliance & GRC Reality
 A key objective of the project is demonstrating that secure infrastructure deployment does not automatically equal compliance. The implemented baseline was evaluated against the Microsoft Cloud Security Benchmark, producing an initial compliance result of approximately 17% despite the infrastructure itself achieving approximately 78% general health in the evaluated environment.
 
-The gap exposed practical GRC issues including:
+> These figures reflect the state of the lab environment at the time of assessment and are included as portfolio evidence rather than as a universal measure of the architecture's security.
 
-Licensing-dependent security controls
+**The gap exposed practical GRC issues including:**
 
-Missing premium Defender capabilities
+* Licensing-dependent security controls
 
-OS-level security requirements
+* Missing premium Defender capabilities
 
-Monitoring and agent requirements
+* OS-level security requirements
 
-Controls requiring additional operational processes
+* Monitoring and agent requirements
+
+* Controls requiring additional operational processes
 
 Rather than hiding these gaps, they are documented as accepted risks and remediation opportunities. This reflects a more realistic security engineering workflow: Deploy → Assess → Identify gaps → Accept or remediate risk → Reassess
 
+---
 ## 🖥️ Visual Documentation
 ---
 ### Architecture Diagrams:
