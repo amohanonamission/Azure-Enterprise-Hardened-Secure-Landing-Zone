@@ -231,6 +231,8 @@ This project is designed as a security engineering laboratory and portfolio impl
 ## 📌 Project Takeaways
 This project demonstrates the principle that cloud security is not just about deploying secure resources. A mature cloud security architecture must connect:
 
-Infrastructure → Identity → Network → Logging → Detection → Governance → Compliance → Operations
+**Infrastructure → Identity → Network → Logging → Detection → Governance → Compliance → Operations**
 
 The most valuable outcome of the project was not achieving a perfect compliance score. It was identifying why a technically secure deployment can still fail governance requirements, documenting those gaps, and designing the next iteration around them.
+
+---
