@@ -25,19 +25,6 @@ The goal is to demonstrate how a secure Azure foundation can be designed with se
 
 ---
 
-## 🧰 Technologies
-
-**Cloud:** Microsoft Azure  
-**IaC:** Bicep  
-**Security:** Azure Firewall • NSGs • Microsoft Defender for Cloud • Microsoft Sentinel  
-**Identity:** Microsoft Entra ID • Managed Identities • Azure RBAC  
-**Governance:** Azure Policy • Microsoft Cloud Security Benchmark  
-**Monitoring:** Log Analytics • KQL  
-**DevSecOps:** GitHub Actions • Azure CLI  
-**Access:** Azure Bastion • Private Link • Private DNS
-
----
-
 ## 🏛 Architecture Overview
 
 **Hub-Spoke Network Architecture**
@@ -83,6 +70,19 @@ Subscription-level Azure Policy controls are deployed through Bicep to establish
 | **Security** | `keyvault.bicep` | Soft-delete, purge protection and Private Link isolation |
 | **Security** | `law.bicep` | Centralized Log Analytics Workspace |
 | **Compute** | `compute.bicep` | Managed identity, no public IP and resource locks |
+
+---
+
+## 🧰 Technologies
+
+**Cloud:** Microsoft Azure  
+**IaC:** Bicep  
+**Security:** Azure Firewall • NSGs • Microsoft Defender for Cloud • Microsoft Sentinel  
+**Identity:** Microsoft Entra ID • Managed Identities • Azure RBAC  
+**Governance:** Azure Policy • Microsoft Cloud Security Benchmark  
+**Monitoring:** Log Analytics • KQL  
+**DevSecOps:** GitHub Actions • Azure CLI  
+**Access:** Azure Bastion • Private Link • Private DNS
 
 ---
 
