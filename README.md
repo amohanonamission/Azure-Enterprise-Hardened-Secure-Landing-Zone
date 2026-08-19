@@ -7,7 +7,7 @@
 ## Objective
 This repository implements an enterprise-style secure cloud foundation in Microsoft Azure using modular Infrastructure as Code (IaC) with Bicep.
 
-The architecture models security and governance requirements commonly found in regulated environments such as banking and financial services, using principles from the Microsoft Cloud Adoption Framework (CAF) and Zero Trust.
+The architecture models security and governance requirements commonly found in regulated environments such as banking and financial services, using principles from the **Microsoft Cloud Adoption Framework (CAF)** and **Zero Trust**.
 
 The goal is to demonstrate how a secure Azure foundation can be designed with security controls built into the infrastructure layer rather than added after deployment.
 
@@ -22,6 +22,19 @@ The goal is to demonstrate how a secure Azure foundation can be designed with se
 * Automated infrastructure deployment and change validation
 
 > **Note:** This is a security engineering and cyber risk lab, not a production deployment. The implementation intentionally documents both security controls and their limitations, including cost, regional availability, licensing, and compliance gaps.
+
+---
+
+## 🧰 Technologies
+
+**Cloud:** Microsoft Azure  
+**IaC:** Bicep  
+**Security:** Azure Firewall • NSGs • Microsoft Defender for Cloud • Microsoft Sentinel  
+**Identity:** Microsoft Entra ID • Managed Identities • Azure RBAC  
+**Governance:** Azure Policy • Microsoft Cloud Security Benchmark  
+**Monitoring:** Log Analytics • KQL  
+**DevSecOps:** GitHub Actions • Azure CLI  
+**Access:** Azure Bastion • Private Link • Private DNS
 
 ---
 
@@ -42,7 +55,7 @@ Workload egress and selected cross-network traffic are routed through Azure Fire
 Compute workloads use System-Assigned Managed Identities to reduce dependency on stored credentials. Azure Key Vault access is designed around Azure RBAC, while a documented break-glass strategy provides emergency access procedures for identity-control-plane outages.
 
 **Private Connectivity**
-Sensitive Azure services such as Key Vault are accessed through Azure Private Link / Private Endpoints with associated Private DNS Zones. Public network access can be disabled so that data-plane access occurs through the private endpoint rather than the public endpoint.
+Sensitive Azure services such as Key Vault are accessed through Azure Azure Private Link through Private Endpoints with associated Private DNS Zones. Public network access can be disabled so that data-plane access occurs through the private endpoint rather than the public endpoint.
 
 **Observability by Design**
 A centralized Log Analytics Workspace (LAW) provides the foundation for security and operational telemetry. Diagnostic settings are configured across supported resources so that relevant platform logs can be centralized for monitoring and downstream Microsoft Sentinel integration.
@@ -124,17 +137,17 @@ Azure-Enterprise-Hardened-Secure-Landing-Zone/
 ## ⚔️ SecOps: Day 2 Operational & Governance Controls
 Unlike a deployment-only IaC exercise, this project also explores the operational controls required after infrastructure exists.
 
-Automated Threat Hunting: /monitoring/Threat-Detection-Queries.kql contains KQL-based detection logic for suspicious infrastructure changes, including unauthorized NSG modifications and Key Vault-related activity.
+* **Automated Threat Hunting:** /monitoring/Threat-Detection-Queries.kql contains KQL-based detection logic for suspicious infrastructure changes, including unauthorized NSG modifications and Key Vault-related activity.
 
-Business Continuity Planning: /identity/setup-break-glass.ps1 documents an emergency-access strategy using a dedicated cloud-only break-glass identity. The purpose is to preserve administrative access during scenarios such as Microsoft Entra ID authentication or Conditional Access failures.
+* **Business Continuity Planning:** /identity/setup-break-glass.ps1 documents an emergency-access strategy using a dedicated cloud-only break-glass identity. The purpose is to preserve administrative access during scenarios such as Microsoft Entra ID authentication or Conditional Access failures.
 
-Microsoft Defender for Cloud: The environment is evaluated through Microsoft Defender for Cloud to identify security posture weaknesses and prioritize remediation.
+* **Microsoft Defender for Cloud:** The environment is evaluated through Microsoft Defender for Cloud to identify security posture weaknesses and prioritize remediation.
 
-Encryption at Host: The architecture documents Azure Encryption at Host as an additional protection layer for VM host-level temporary disks and OS/data disk caches.
+* **Encryption at Host:** The architecture documents Azure Encryption at Host as an additional protection layer for VM host-level temporary disks and OS/data disk caches.
 
-Secure Out-of-Band Management (Replacing JIT): Traditional Just-In-Time (JIT) VM access is often used to mitigate brute-force attacks on Public IPs. Because this architecture adheres to strict Zero-Trust principles, Public IPs were explicitly blocked via Azure Policy. Administrative access is instead handled entirely via Azure Bastion over TLS, rendering traditional JIT redundant and eliminating the public attack surface entirely.
+* **Secure Out-of-Band Management:** Traditional Just-In-Time (JIT) VM access is primarily used to reduce exposure of management ports such as SSH/RDP. Because this architecture blocks public IP exposure through Azure Policy, administrative access is instead provided through Azure Bastion. This removes direct internet exposure of management ports and reduces the attack surface without relying on public RDP/SSH endpoints.
 
-Policy-as-Code: The environment uses the Microsoft Cloud Security Benchmark (MCSB) as a security baseline for evaluating configuration drift and identifying areas requiring remediation.
+* **Policy-as-Code:** The environment uses the Microsoft Cloud Security Benchmark (MCSB) as a security baseline for evaluating configuration drift and identifying areas requiring remediation.
 
 Continuous Compliance & GRC Reality
 A key objective of the project is demonstrating that secure infrastructure deployment does not automatically equal compliance. The implemented baseline was evaluated against the Microsoft Cloud Security Benchmark, producing an initial compliance result of approximately 17% despite the infrastructure itself achieving approximately 78% general health in the evaluated environment.
