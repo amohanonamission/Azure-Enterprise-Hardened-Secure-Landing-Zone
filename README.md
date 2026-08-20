@@ -42,7 +42,7 @@ Workload egress and selected cross-network traffic are routed through Azure Fire
 Compute workloads use System-Assigned Managed Identities to reduce dependency on stored credentials. Azure Key Vault access is designed around Azure RBAC, while a documented break-glass strategy provides emergency access procedures for identity-control-plane outages.
 
 **Private Connectivity**
-Sensitive Azure services such as Key Vault are accessed through Azure Azure Private Link through Private Endpoints with associated Private DNS Zones. Public network access can be disabled so that data-plane access occurs through the private endpoint rather than the public endpoint.
+Sensitive Azure services such as Key Vault are accessed through Azure Private Link through Private Endpoints with associated Private DNS Zones. Public network access can be disabled so that data-plane access occurs through the private endpoint rather than the public endpoint.
 
 **Observability by Design**
 A centralized Log Analytics Workspace (LAW) provides the foundation for security and operational telemetry. Diagnostic settings are configured across supported resources so that relevant platform logs can be centralized for monitoring and downstream Microsoft Sentinel integration.
@@ -124,7 +124,7 @@ Azure-Enterprise-Hardened-Secure-Landing-Zone/
 │       ├── keyvault.bicep                # Private Link isolated secrets
 │       └── law.bicep                     # Log Analytics Workspace
 ├── identity/
-│   └── setup-break-glass.ps1             # BCP Emergency Access Script
+│   └── setup-break-glass.ps1             # Emergency / Break-Glass Access Procedure
 ├── monitoring/
 │   └── Threat-Detection-Queries.kql      # Sentinel detection logic
 ├──.gitignore
@@ -147,7 +147,7 @@ Unlike a deployment-only IaC exercise, this project also explores the operationa
 
 * **Secure Out-of-Band Management:** Traditional Just-In-Time (JIT) VM access is primarily used to reduce exposure of management ports such as SSH/RDP. Because this architecture blocks public IP exposure through Azure Policy, administrative access is instead provided through Azure Bastion. This removes direct internet exposure of management ports and reduces the attack surface without relying on public RDP/SSH endpoints.
 
-* **Policy-as-Code:** The environment uses the Microsoft Cloud Security Benchmark (MCSB) as a security baseline for evaluating configuration drift and identifying areas requiring remediation.
+* **Security Benchmarking:** The environment uses the Microsoft Cloud Security Benchmark (MCSB) as a security baseline for evaluating configuration drift and identifying areas requiring remediation.
 
 ### Continuous Compliance & GRC Reality
 A key objective of the project is demonstrating that secure infrastructure deployment does not automatically equal compliance. The implemented baseline was evaluated against the Microsoft Cloud Security Benchmark, producing an initial compliance result of approximately 17% despite the infrastructure itself achieving approximately 78% general health in the evaluated environment.
