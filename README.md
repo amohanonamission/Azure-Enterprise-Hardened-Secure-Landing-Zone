@@ -24,6 +24,9 @@ The goal is to demonstrate how a secure Azure foundation can be designed with se
 > **Note:** This is a security engineering and cyber risk lab, not a production deployment. The implementation intentionally documents both security controls and their limitations, including cost, regional availability, licensing, and compliance gaps.
 
 ---
+![Architecture Diagram](docs/images/azure-resource-visualizer.png)
+* **(IMG001- Image illustrates the Azure Resource Visualizer showing the Hub-Spoke architecture.)**
+---
 
 ## 🏛 Architecture Overview
 
@@ -55,6 +58,9 @@ Subscription-level Azure Policy controls are deployed through Bicep to establish
 * Security baseline enforcement
 * Continuous compliance visibility
 
+---
+![Architecture Diagram](docs/images/vscode-bicep-visualizer.png)
+* **(IMG002- Image illustrates the VS Code Bicep visualizer showing infrastructure dependencies.)**
 ---
 
 ## 🏗 Infrastructure as Code Components
