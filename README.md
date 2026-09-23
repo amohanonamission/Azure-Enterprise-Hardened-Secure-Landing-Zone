@@ -59,9 +59,6 @@ Subscription-level Azure Policy controls are deployed through Bicep to establish
 * Continuous compliance visibility
 
 ---
-![Architecture Diagram](docs/images/vscode-bicep-visualizer.png)
-* **(IMG002- Image illustrates the VS Code Bicep visualizer showing infrastructure dependencies.)**
----
 
 ## 🏗 Infrastructure as Code Components
 
@@ -77,6 +74,10 @@ Subscription-level Azure Policy controls are deployed through Bicep to establish
 | **Security** | `law.bicep` | Centralized Log Analytics Workspace |
 | **Compute** | `compute.bicep` | Managed identity, no public IP and resource locks |
 
+
+---
+![Architecture Diagram](docs/images/vscode-bicep-visualizer.png)
+* **(IMG002- Image illustrates the VS Code Bicep visualizer showing infrastructure dependencies.)**
 ---
 
 ## 🧰 Technologies
