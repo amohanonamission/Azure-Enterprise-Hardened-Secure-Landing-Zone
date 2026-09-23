@@ -1,9 +1,12 @@
 # Azure Enterprise Secure Landing Zone
 ![Architecture Diagram](docs/images/azure-resource-visualizer.png)
+* **(IMG001- Image illustrates the Azure Resource Visualizer showing the Hub-Spoke architecture.)**
 
 **Zero-Trust, Infrastructure Security & GRC Foundation**
-🚧 **Status:** Active Development
-🎯 **Focus:** Azure Infrastructure Security • Governance • GRC • DevSecOps • Cloud Security
+
+🚧 **Status:** Active Development | 🎯 **Focus:** Azure Infrastructure Security • Governance • GRC • DevSecOps • Cloud Security 
+
+---
 
 ## Objective
 This repository implements an enterprise-style secure cloud foundation in Microsoft Azure using modular Infrastructure as Code (IaC) with Bicep.
@@ -174,14 +177,6 @@ Rather than hiding these gaps, they are documented as accepted risks and remedia
 
 ---
 ## 🖥️ Visual Documentation
----
-### Architecture Diagrams:
----
-![Architecture Diagram](docs/images/azure-resource-visualizer.png)
-* **(IMG001- Image illustrates the Azure Resource Visualizer showing the Hub-Spoke architecture.)**
----
-![Architecture Diagram](docs/images/vscode-bicep-visualizer.png)
-* **(IMG002- Image illustrates the VS Code Bicep visualizer showing infrastructure dependencies.)**
 ---
 ### Network Topology:
 ---
