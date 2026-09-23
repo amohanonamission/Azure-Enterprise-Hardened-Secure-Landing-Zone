@@ -1,7 +1,6 @@
 # Azure Enterprise Secure Landing Zone
-**Zero-Trust, Infrastructure Security & GRC Foundation**
 
-🚧 **Status:** Active Development | 🎯 **Focus:** Azure Infrastructure Security • Governance • GRC • DevSecOps • Cloud Security 
+**Zero-Trust, Infrastructure Security & GRC Foundation**  🎯 **Focus:** Azure Infrastructure Security • Governance • GRC • DevSecOps • Cloud Security 
 
 ![Architecture Diagram](docs/images/azure-resource-visualizer.png)
 * **(IMG001- Image illustrates the Azure Resource Visualizer showing the Hub-Spoke architecture.)**
